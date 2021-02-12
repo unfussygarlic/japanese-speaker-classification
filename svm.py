@@ -45,7 +45,7 @@ print("\n")
 """
 Linear classifiers SGDC
 (Using default loss=hinge gives a linear SVM)
-accuracy 10 folds: 0.9675
+accuracy 10 folds: 0.9702
 """
 cv = KFold(n_splits=10, random_state=42, shuffle=True)
 model = SVC(kernel="rbf", gamma= 0.002, C = 41)
