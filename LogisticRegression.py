@@ -49,17 +49,33 @@ Logistic Regression without PCA
 folds: 5, 10, 20
 accuracy: 0.9675675675675676
 """
-cv = KFold(n_splits=5, random_state=42, shuffle=True)
-clf = LogisticRegression(max_iter = 1000)
+# cv = KFold(n_splits=5, random_state=42, shuffle=True)
+# clf = LogisticRegression(C = 1, penalty="l2", max_iter = 1000)
+# scores = []
+# test_output = test_output.ravel()
+# train_output = train_output.ravel()
+# for train_index, test_index in cv.split(train_input):
+#     X_train, y_train = train_input[train_index] , train_output[train_index]
+#     X_test, y_test = train_input[test_index] , train_output[test_index]
+#     clf.fit(X_train, y_train)
+#     scores.append(clf.score(X_test, y_test))
+
+# test_scores = clf.score(test_input, test_output)
+# pred = clf.predict(test_input)
+# print(confusion_matrix(pred, test_output))
+# print(test_scores)
+
+# cv = KFold(n_splits=5, random_state=42, shuffle=True)
+
+"""
+Logistic Regression without PCA & Cross-validation
+accuracy: 0.972972972972973
+"""
+clf = LogisticRegression(C = 1, penalty="l2", max_iter = 1000)
 scores = []
 test_output = test_output.ravel()
 train_output = train_output.ravel()
-for train_index, test_index in cv.split(train_input):
-    X_train, y_train = train_input[train_index] , train_output[train_index]
-    X_test, y_test = train_input[test_index] , train_output[test_index]
-    clf.fit(X_train, y_train)
-    scores.append(clf.score(X_test, y_test))
-
+clf.fit(train_input, train_output)
 test_scores = clf.score(test_input, test_output)
 pred = clf.predict(test_input)
 print(confusion_matrix(pred, test_output))

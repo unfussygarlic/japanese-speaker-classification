@@ -4,3 +4,4 @@ __pycache__
 
 data\ae.train
 data\ae.test
+models\best.h5
